@@ -22,8 +22,10 @@ This project is built for learning, hackathons, and portfolio purposes.
 
 ## 🖼️ Screenshots
 
-(images/image1.png)
-(images/image2.png)
+[🖼️ Screenshots](#-screenshots)
+
+![Home Page](images/image1.png)
+![Results Page](images/image2.png)
 
 ---
 
