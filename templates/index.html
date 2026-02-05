@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Matcher</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="page-wrapper">
+        <div class="card">
+            <div class="card-body">
+                <h2 class="card-title">Resume Matcher</h2>
+
+                <!-- Upload form -->
+                <form action="/" method="post" enctype="multipart/form-data" class="form-section">
+                    <label for="resume" class="form-label">Upload Resume (PDF)</label>
+                    <input type="file" id="resume" name="resume"
+                           accept="application/pdf" required
+                           class="input-field input-file">
+
+                    <label for="job_desc" class="form-label">Job Description</label>
+                    <textarea id="job_desc" name="job_desc" rows="4"
+                              placeholder="Enter Job Description" required
+                              class="textarea-field"></textarea>
+
+                    <div class="button-row">
+                        <button type="submit" class="btn btn-primary">Check Match</button>
+                        <button type="button" id="Refreshbtn" class="btn btn-secondary">Refresh</button>
+                    </div>
+                </form>
+
+                {% if score is not none %}
+                <!-- Centered result block -->
+                <div class="result-center" id="resultRow">
+                    <div class="score-block">
+                        <label class="score-label">Match Score</label>
+                        <div class="progress">
+                            <div class="progress-bar"
+                                 style="width: {{ score }}%;"
+                                 aria-valuenow="{{ score }}" aria-valuemin="0" aria-valuemax="100">
+                                {{ score }}%
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="results-lists">
+                        <div class="matched-block">
+                            <div class="matched-title">Matched Skills</div>
+                            {% if matched_keywords and matched_keywords|length > 0 %}
+                                <ul class="matched-list">
+                                    {% for kw in matched_keywords %}
+                                        <li class="matched-item">
+                                            <span class="matched-text">{{ kw }}</span>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            {% else %}
+                                <p class="matched-text">No clear skill matches detected yet. Try aligning your skills with the job description keywords.</p>
+                            {% endif %}
+                        </div>
+
+                        <div class="suggestions-block">
+                            <div class="suggestions-title">Suggestions</div>
+                            {% if suggestions %}
+                                <ul class="suggestions-list">
+                                    {% for s in suggestions %}
+                                        <li class="suggestion-item">
+                                            <span class="suggestion-text">{{ s.message }}</span>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            {% else %}
+                                <p class="suggestion-text">
+                                    Great job! No major issues detected in your resume for this job description.
+                                </p>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('Refreshbtn').addEventListener('click', function () {
+            document.querySelector("form").reset();
+            let resultRow = document.getElementById('resultRow');
+            if (resultRow) resultRow.style.display = 'none';
+        });
+    </script>
+</body>
+</html>

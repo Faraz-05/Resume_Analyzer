@@ -1,0 +1,249 @@
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #181a1b;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Wrapper to center content */
+.page-wrapper {
+    width: 100%;
+    max-width: 900px;
+    padding: 20px;
+}
+
+/* Card / text colors */
+.card {
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    padding: 24px 24px 28px 24px;
+}
+
+.card-body {
+    color: #212529;
+}
+
+/* Title */
+.card-title {
+    font-size: 26px;
+    font-weight: 600;
+    color: #007bff;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: center;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Form Container */
+.form-section {
+    margin-top: 10px;
+}
+
+/* Labels and inputs */
+.form-label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 500;
+    color: #212529;
+}
+
+.input-field,
+.textarea-field {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 14px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    font-family: inherit;
+    resize: vertical;
+}
+
+.input-field:focus,
+.textarea-field:focus {
+    border-color: #2980b9;
+    outline: none;
+    box-shadow: 0 0 8px rgba(41, 128, 185, 0.2);
+}
+
+/* File Input */
+.input-file {
+    background: #ecf0f1;
+    cursor: pointer;
+}
+
+/* Buttons row */
+.button-row {
+    display: flex;
+    gap: 10px;
+    margin-top: 6px;
+}
+
+.btn {
+    padding: 12px;
+    border-radius: 6px;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.btn-primary {
+    background: #2980b9;
+    color: #fff;
+    flex: 1 1 0;
+}
+
+.btn-primary:hover {
+    background: #2471a3;
+    transform: scale(1.03);
+}
+
+.btn-secondary {
+    background: #f0f0f0;
+    color: #333;
+    flex: 1 1 0;
+}
+
+.btn-secondary:hover {
+    background: #e0e0e0;
+    transform: scale(1.03);
+}
+
+/* Match score block */
+.score-label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 500;
+}
+
+.progress {
+    width: 100%;
+    height: 30px;
+    background: #e5e5e5;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    background: #198754; /* green */
+    color: #fff;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    transition: width 0.6s ease;
+}
+
+/* Centered result layout */
+.result-center {
+    margin-top: 24px;
+    text-align: center;
+}
+
+.score-block {
+    max-width: 400px;
+    margin: 0 auto 20px auto;
+}
+
+/* Suggestions + matched skills container */
+.results-lists {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 10px;
+}
+
+.suggestions-block,
+.matched-block {
+    flex: 1 1 260px;
+    max-width: 420px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+/* Suggestions under the score */
+.suggestions-title,
+.matched-title {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.suggestions-title {
+    color: #f1c40f;  /* yellow */
+}
+
+.matched-title {
+    color: #27ae60; /* green */
+}
+
+.suggestions-list,
+.matched-list {
+    list-style: disc;
+    padding-left: 20px;
+    font-size: 14px;
+}
+
+.suggestion-item,
+.matched-item {
+    margin-bottom: 6px;
+}
+
+.suggestion-text,
+.matched-text {
+    color: #212529;
+}
+
+/* Link under card */
+.link-row {
+    margin-top: 16px;
+    text-align: center;
+}
+
+.link-inline {
+    color: #17a2b8;
+    text-decoration: none;
+}
+
+.link-inline:hover {
+    text-decoration: underline;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .card {
+        margin: 0 5px;
+    }
+    .button-row {
+        flex-direction: column;
+    }
+    .results-lists {
+        flex-direction: column;
+    }
+}
