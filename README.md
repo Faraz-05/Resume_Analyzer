@@ -54,6 +54,7 @@ Resume_Analyzer/
 ├── uploads/
 └── README.md
 
+---
 
 ## ⚙️ Setup & Usage
 
@@ -89,6 +90,8 @@ python app.py
 
 Open the URL shown in the terminal (typically http://127.0.0.1:5000) in your browser.
 
+---
+
 ## 🧮 Scoring Logic (High Level)
 
 Semantic similarity: SentenceTransformers embeddings for resume and JD compared with cosine similarity.
@@ -107,6 +110,8 @@ Export matched and missing skills as CSV for recruiters.
 Add user authentication and history of past analyses.
 
 Dockerize the app for easier deployment.
+
+---
 
 ## 📜 License
 This project is intended for learning and portfolio purposes.
